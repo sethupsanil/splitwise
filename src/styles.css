@@ -1,0 +1,77 @@
+/* You can add global styles to this file, and also import other style files */
+html,body{
+  height: 100%;
+  background-color: #f7f7f7 !important;
+}
+thead, tbody, tfoot, tr, td, th {
+  font-size: 12px;
+}
+
+.btn {
+  line-height: 14px !important;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.common-list {
+  padding: 0;
+  margin: 0;
+}
+.common-list li {
+  font-size: 12px;
+  list-style: none;
+  position: relative;
+  padding: 0 0 0 12px;
+  margin: 0 0 7px;
+}
+.common-list li::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 8px;
+  width: 4px;
+  height: 4px;
+  background: #000;
+  border-radius: 50%;
+}
+
+
+.section-heading {
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+.section-sub-heading {
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+
+.form-group {
+  margin: 0 0 8px;
+}
+
+.form-group label {
+  font-size: 12px;
+  margin: 0 0 5px;
+}
+
+.common-box {
+  background: #fff;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 2px 3px 10px #ddd;
+  margin: 0 0 30px;
+}
+.form-control {
+  border-radius: 5px !important;
+  min-height: 36px !important;
+  line-height: 22px !important;
+  font-size: 12px !important;
+}
+.btn {
+  font-size: 13px !important;
+  line-height: 20px !important;
+  border-radius: 5px !important;
+  padding: 7px 15px 10px !important;
+}

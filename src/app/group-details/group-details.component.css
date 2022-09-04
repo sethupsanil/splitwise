@@ -1,0 +1,9 @@
+body {
+  background: #f7f7f7;
+}
+label{
+  margin-bottom: 2px;
+}
+b{
+  text-transform: capitalize;
+}

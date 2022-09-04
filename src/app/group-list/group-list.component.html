@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-12">
+    <h2 class="section-heading">
+      Create Group
+    </h2>
+  </div>
+  <!--form-->
+  <div class="col-12">
+    <div class="common-box">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Group Name</label>
+        <input type="text" [(ngModel)]="groupName.name" class="form-control" placeholder="Enter Group Name">
+      </div>
+      <div class="form-group" *ngFor="let item of personName;let i=index">
+        <label for="exampleInputPassword1">Member {{i+1}} Name</label>
+        <input type="text" [(ngModel)]="groupName.personName[i]" class="form-control" placeholder="Name {{i+1}}">
+      </div>
+      <div class="d-flex justify-content-end mb-2 mt-2">
+        <button type="submit" class="btn btn-outline-secondary btn-sm" (click)="addMember()">Add member</button>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="createGroup()">Create Group</button>
+    </div>
+  </div>
+  <!--form ends-->
+</div>
+
+<div class="row mt-2">
+  <div class="col-12">
+    <h3 class="section-sub-heading">Group List</h3>
+  </div>
+  <div class="col-12">
+    <div class="common-box">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Group Name</th>
+          <th scope="col">Members Count</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of _helper.groupList; let i=index">
+          <th scope="row">{{i+1}}</th>
+          <td class="pointer" (click)="gotoDetailPage(i)">{{item.name}}</td>
+          <td class="pointer" (click)="gotoDetailPage(i)">{{item.personName.length}}</td>
+          <td style="text-align:right;">
+            <button type="submit" class="btn btn-outline-secondary btn-sm" (click)="deleteGroup(i)">Delete</button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+</div>

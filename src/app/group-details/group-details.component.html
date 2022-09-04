@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-12">
+    <h2 class="section-heading">
+      Create Expense for {{groupDetails.name | titlecase}}
+    </h2>
+  </div>
+  <!--form-->
+  <div class="col-12">
+    <div class="common-box">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Expense Type</label>
+      <input type="text" class="form-control" [(ngModel)]="expenseList.name" placeholder="Enter Expense">
+    </div>
+    <div class="form-group" *ngFor="let item of expenseList.personContribution;let i=index">
+      <div class="row">
+        <div class="col">
+          <label for="exampleInputPassword1">Member {{i+1}} Name</label>
+          <label class="form-control" placeholder="First name">{{item.name}}</label>
+        </div>
+        <div class="col">
+          <label for="exampleInputPassword1">Amount Payed</label>
+          <input type="number" [(ngModel)]="item.amount" class="form-control" placeholder="Last name">
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end mb-2 mt-2">
+      <button type="submit" class="btn btn-primary" (click)="addExpense()">Add Expense</button>
+    </div>
+  </div>
+  </div>
+  <!--form ends-->
+</div>
+
+<div class="row mt-2">
+  <div class="col-12">
+    <h3 class="section-sub-heading">Expense List</h3>
+  </div>
+  <div class="col-12">
+    <div class="common-box">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Expense Name</th>
+          <th *ngFor="let item of groupDetails.personName; let i=index">{{item | titlecase}}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of _helper.groupList[index].expenseList; let i=index">
+          <th scope="row">{{i+1}}</th>
+          <td class="pointer">{{item.name?item.name:'-'}}</td>
+          <td class="pointer" *ngFor="let value of item.personContribution">{{value.amount}}</td>
+          <td>
+            <button type="submit" class="btn btn-outline-secondary btn-sm" (click)="deleteExpense(i)">Delete</button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+</div>
+<div class="row mt-2">
+  <div class="col-12">
+    <h3 class="section-sub-heading">Settlements List</h3>
+  </div>
+  <div class="col-12">
+    <div class="common-box">
+      <ul class="common-list">
+        <li *ngFor="let item of settlement">
+          <b>{{item.bearer | titlecase}} </b> has to get <b>{{item.amount | number:'1.0-2'}}</b> from <b>{{item.getFrom.length===0?item.bearer:item.getFrom}}</b>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
